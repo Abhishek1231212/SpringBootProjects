@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.learning.spring.exceptions.ResourceNotFoundException;
 import com.learning.spring.models.Guest;
 import com.learning.spring.services.GuestService;
 
@@ -25,7 +26,7 @@ public class GuestController {
 	}
 	
 	@GetMapping("/guests/guest_id")
-	public Guest getGuestById(@RequestParam long guest_id) {
+	public Guest getGuestById(@RequestParam long guest_id) throws ResourceNotFoundException{
 		return guestService.getGuestByGuestNumber(guest_id);
 	}
 	
