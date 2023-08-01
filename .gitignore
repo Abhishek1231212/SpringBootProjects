@@ -15,6 +15,7 @@ build/
 target/
 bin/
 sts-4.19.0.RELEASE/
+Servers/
 dependency-reduced-pom.xml
 
 # Eclipse Project Files
