@@ -1,9 +1,11 @@
 package com.learning.spring.services;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.learning.spring.exceptions.ResourceNotFoundException;
 import com.learning.spring.models.Guest;
 import com.learning.spring.repositories.GuestRepository;
 
@@ -17,9 +19,12 @@ public class GuestService {
 		return guestRepository.findAll();
 	}
 	
-	public Guest getGuestByGuestNumber(long guestNumber) {
-		Guest guest = guestRepository.findById(guestNumber).get();
-		return guest;
+	public Guest getGuestByGuestNumber(long guestNumber) throws ResourceNotFoundException {
+		Optional<Guest> guest = guestRepository.findById(guestNumber);
+		if(guest.isEmpty())
+			throw new ResourceNotFoundException("No Guest of the id:" + guestNumber);
+		
+		return guest.get();
 	}
 	public void saveGuest(Guest guest) {	
 		guestRepository.save(guest);
