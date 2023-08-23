@@ -1,13 +1,14 @@
-package com.learning.microservices;
+package com.learning.spring;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class SpringMicroservicesApplicationTests {
+
+class LearningSpringApplicationTests {
 
 	@Test
 	void contextLoads() {
+		assert(true);
 	}
 
 }

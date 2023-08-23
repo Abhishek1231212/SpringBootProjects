@@ -1,4 +1,4 @@
-package com.learning.behaviouralDP.Adapter;
+package com.learning.structuralDP.Adapter;
 
 
 

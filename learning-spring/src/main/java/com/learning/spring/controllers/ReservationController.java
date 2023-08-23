@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -38,8 +39,8 @@ public class ReservationController {
 		
 	}
 	
-	@GetMapping("/reservations/reservation_id")
-	public Reservation getReservationById(@RequestParam long reservation_id) {
+	@GetMapping("/reservations/{reservation_id}")
+	public Reservation getReservationById(@PathVariable long reservation_id) {
 		return reservationService.getReservationByID(reservation_id);
 	}
 	
@@ -48,8 +49,8 @@ public class ReservationController {
 		return reservationService.saveReservation(reservation);
 	}
 	
-	@DeleteMapping("/reservations/reservation_id")
-	public String removeReservationById(@RequestParam long reservation_id) {
+	@DeleteMapping("/reservations/{reservation_id}")
+	public String removeReservationById(@PathVariable long reservation_id) {
 		return reservationService.deleteReservation(reservation_id);
 	}
 	
