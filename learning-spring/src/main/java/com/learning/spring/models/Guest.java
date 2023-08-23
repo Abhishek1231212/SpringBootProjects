@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="guest")
-public class Guest {
+public class Guest implements Cloneable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long guest_id;
@@ -120,4 +120,11 @@ public class Guest {
 				+ email + ", address=" + address + ", country=" + country + ", state=" + state + ", phone_number="
 				+ phone_number + "]";
 	}
+
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return new Guest( this.guest_id,this.firstName,this.lastName,this.email,this.address,this.country,this.state ,this.phone_number );
+	}
+	
+	
 }

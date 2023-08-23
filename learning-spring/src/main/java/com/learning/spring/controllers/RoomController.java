@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,8 +32,8 @@ public class RoomController {
 		return roomService.saveRoom(room);
 	}
 	
-	@DeleteMapping("/rooms/room_id")
-	public String deleteRoom(@RequestParam String room_id) {
+	@DeleteMapping("/rooms/{room_id}")
+	public String deleteRoom(@PathVariable String room_id) {
 		return roomService.removeRoom(room_id);
 	}
 	
@@ -41,8 +42,8 @@ public class RoomController {
 		roomService.updateRoom(room);
 	}
 	
-	@GetMapping("/rooms/room_number")
-	public Room getRoomByRoomNumber(@RequestParam String room_number){
+	@GetMapping("/rooms/{room_number}")
+	public Room getRoomByRoomNumber(@PathVariable String room_number){
 		System.out.println(room_number);
 		return roomService.getRoomByRoomNumber(room_number);
 	}
