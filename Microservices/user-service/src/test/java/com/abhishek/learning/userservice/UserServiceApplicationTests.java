@@ -1,15 +1,13 @@
-package net.javaguides.springboot;
+package com.abhishek.learning.userservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.util.Assert;
 
-
-class SpringbootBackendApplicationTests {
+@SpringBootTest
+class UserServiceApplicationTests {
 
 	@Test
 	void contextLoads() {
-		
 	}
 
 }
