@@ -72,52 +72,52 @@ public class GuestControllerTest {
 		guests.add(guest5);
 		guests.add(guest6);
 	}
-//	
-//	@Test
-//	public void testGetAllRecords_Success() throws Exception {
-//		List<Guest> records = new ArrayList<>(guests);
-//		System.out.println(records.size());
-//		Mockito.when(guestService.getAllGuests()).thenReturn(records);
-//		
-//		mockMvc.perform(MockMvcRequestBuilders
-//				.get("/guests")
-//				.contentType(MediaType.APPLICATION_JSON))
-//				.andExpect(status().isOk())
-//				.andExpect(jsonPath("$[0].email", is("temp1@email.com")));
-//	}
-//	
-//	@Test
-//	public void testGetGuestById_Success() throws Exception, ResourceNotFoundException {
-//		List<Guest> records = new ArrayList<>(guests);
-//		System.out.println(records.size());
-//		Mockito.when(guestService.getGuestByGuestNumber(records.get(0).getGuest_id())).thenReturn(guest1);
-//		
-//		mockMvc.perform(MockMvcRequestBuilders
-//				.get("/guests/1")
-//				.contentType(MediaType.APPLICATION_JSON))
-//				.andExpect(status().isOk())
-//				.andExpect(jsonPath("$.email", is("temp1@email.com")));
-//	}
 	
 	@Test
-	public void testCreateGuest_success() throws Exception{
-		String content = objectWriter.writeValueAsString(guest1);
-		Mockito.when(guestService.saveGuest(guest1)).thenReturn(content);
-		//Mockito.when(guestRepository.save(guest1)).thenReturn(guest1);
+	public void testGetAllRecords_Success() throws Exception {
+		List<Guest> records = new ArrayList<>(guests);
+		System.out.println(records.size());
+		Mockito.when(guestService.getAllGuests()).thenReturn(records);
 		
-		
-		System.out.println("Content: " + content);
-													
-		mockMvc.perform( MockMvcRequestBuilders
-				.post("/guests")
-				.contentType(MediaType.APPLICATION_JSON)
-				.accept(MediaType.APPLICATION_JSON)
-				.content(content))
-			   .andExpect(status().isOk())
-			   .andExpect(jsonPath("$", notNullValue()));
-//			   .andExpect(jsonPath("$.email", is("temp1@email.com")));
-				
+		mockMvc.perform(MockMvcRequestBuilders
+				.get("/guests")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$[0].email", is("temp1@email.com")));
 	}
+	
+	@Test
+	public void testGetGuestById_Success() throws Exception, ResourceNotFoundException {
+		List<Guest> records = new ArrayList<>(guests);
+		System.out.println(records.size());
+		Mockito.when(guestService.getGuestByGuestNumber(records.get(0).getGuest_id())).thenReturn(guest1);
+		
+		mockMvc.perform(MockMvcRequestBuilders
+				.get("/guests/1")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.email", is("temp1@email.com")));
+	}
+	
+//	@Test
+//	public void testCreateGuest_success() throws Exception{
+//		String content = objectWriter.writeValueAsString(guest1);
+//		Mockito.when(guestService.saveGuest(guest1)).thenReturn(content);
+//		//Mockito.when(guestRepository.save(guest1)).thenReturn(guest1);
+//		
+//		
+//		System.out.println("Content: " + content);
+//													
+//		mockMvc.perform( MockMvcRequestBuilders
+//				.post("/guests")
+//				.contentType(MediaType.APPLICATION_JSON)
+//				.accept(MediaType.APPLICATION_JSON)
+//				.content(content))
+//			   .andExpect(status().isOk())
+//			   .andExpect(jsonPath("$", notNullValue()));
+//			   .andExpect(jsonPath("$.email", is("temp1@email.com")));
+//				
+//	}
 	
 }
 
